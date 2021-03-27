@@ -118,6 +118,18 @@ std::vector<typename pcl::PointCloud<PointT>::Ptr> ProcessPointClouds<PointT>::C
     ec.setInputCloud (cloud);
     ec.extract (cluster_indices);
 
+    for (auto indices : cluster_indices) {
+      typename  pcl::PointCloud<PointT>::Ptr temp(new pcl::PointCloud<pcl::PointXYZ>());
+      for (auto idx : indices.indices) {
+        temp->push_back(cloud->at(idx));
+      }
+
+      temp->width = temp->size();
+      temp->height = 1;
+      temp->is_dense = true;
+      clusters.push_back(temp);
+    }
+
     auto endTime = std::chrono::steady_clock::now();
     auto elapsedTime = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);
     std::cout << "clustering took " << elapsedTime.count() << " milliseconds and found " << clusters.size() << " clusters" << std::endl;

@@ -1,4 +1,4 @@
-# Sensor Fusion Self-Driving Car Course
+# Arvind's Sensor Fusion Course Solutions
 
 <img src="media/ObstacleDetectionFPS.gif" width="700" height="400" />
 
