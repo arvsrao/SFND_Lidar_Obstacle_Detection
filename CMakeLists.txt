@@ -15,13 +15,15 @@ add_definitions(${PCL_DEFINITIONS})
 list(REMOVE_ITEM PCL_LIBRARIES "vtkproj4")
 
 
-add_executable (environment src/environment.cpp src/render/render.cpp src/processPointClouds.cpp)
+add_executable (environment src/environment.cpp src/kdtree3d.h src/render/render.cpp src/processPointClouds.cpp)
 add_executable (ransac src/quiz/ransac/ransac2d.cpp src/render/render.cpp src/processPointClouds.cpp)
 add_executable (quizCluster src/quiz/cluster/cluster.cpp src/quiz/cluster/kdtree.h src/render/render.cpp)
+#add_executable (quizPCABox src/render/pcaBox.cpp src/render/render.cpp)
 
 target_link_libraries (environment ${PCL_LIBRARIES})
 target_link_libraries (ransac ${PCL_LIBRARIES})
 target_link_libraries (quizCluster ${PCL_LIBRARIES})
+#target_link_libraries (quizPCABox ${PCL_LIBRARIES})
 
 
 
