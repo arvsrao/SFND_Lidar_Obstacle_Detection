@@ -129,8 +129,8 @@ std::unordered_set<int> Ransac(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, int ma
         auto a = cloud->at(*iter);
         auto b = cloud->at(*(++iter));
 
-        auto ab = pcl::PointXY(b.x - a.x, b.y - a.y);
-        auto eta = pcl::PointXY(ab.y, -ab.x);
+        auto ab = pcl::PointXYZ(b.x - a.x, b.y - a.y, 0);
+        auto eta = pcl::PointXYZ(ab.y, -ab.x, 0);
         auto eta_norm = std::sqrt(eta.x * eta.x + eta.y * eta.y);
 
         // Randomly sample subset and fit line
