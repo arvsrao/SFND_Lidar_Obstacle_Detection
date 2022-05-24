@@ -1,4 +1,4 @@
-# Arvind's Sensor Fusion LIDAR Course Solutions
+# Arvind's LIDAR Final Project Submission
 
 <img src="media/ObstacleDetectionFPS.gif" width="700" height="400" />
 
